@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPay Transactions</title>
+</head>
+<body style="font-family:Arial;background:#f1f3f4;padding:30px">
+
+<h1>GPay Transaction History</h1>
+
+<table border="1" cellpadding="12" cellspacing="0"
+       style="background:white;border-collapse:collapse">
+    <tr>
+        <th>Transaction Type</th>
+        <th>Receiver</th>
+        <th>Amount</th>
+    </tr>
+
+    {% for t in transactions %}
+    <tr>
+        <td>{{ t.type }}</td>
+        <td>{{ t.receiver }}</td>
+        <td>₹ {{ "%.2f"|format(t.amount) }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>
